@@ -3,6 +3,17 @@ package main
 var secKillConf = &SeckillConf{}
 
 type SeckillConf struct {
-	redisAddr string
-	etcdAddr  string
+	RedisConf RedisConf
+	EtcdConf  EtcdConf
+}
+
+type RedisConf struct {
+	RedisAddr        string
+	RedisMaxIdle     int
+	RedisMaxActive   int
+	RedisIdleTimeout int
+}
+
+type EtcdConf struct {
+	EtcdAddr string
 }
