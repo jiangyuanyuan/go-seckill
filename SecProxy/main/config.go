@@ -15,5 +15,16 @@ type RedisConf struct {
 }
 
 type EtcdConf struct {
-	EtcdAddr string
+	EtcdAddr   string
+	TimeOut    int
+	EtcdSecKey string
+}
+
+type SecInfoConf struct {
+	ProductId int
+	StartTime int
+	EndTime   int
+	Status    int
+	Count     int
+	Left      int
 }

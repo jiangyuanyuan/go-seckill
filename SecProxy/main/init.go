@@ -1,42 +1,111 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+	etcd_client "github.com/coreos/etcd/clientv3"
 	"github.com/gomodule/redigo/redis"
+	"golang.org/x/net/context"
 	"time"
 )
 
 var (
-	redisPool *redis.Pool
+	redisPool  *redis.Pool
+	etcdClient *etcd_client.Client
 )
 
-func initRedis() (err error) {
-	redisPool = &redis.Pool{
-		MaxIdle:     secKillConf.RedisConf.RedisMaxIdle,
-		MaxActive:   secKillConf.RedisConf.RedisMaxActive,
-		IdleTimeout: time.Duration(secKillConf.RedisConf.RedisIdleTimeout) * time.Second,
-		Dial: func() (redis.Conn, error) {
-			return redis.Dial("tcp", secKillConf.RedisConf.RedisAddr)
-		},
+func convertLogLevel(level string) int {
+
+	switch level {
+	case "debug":
+		return logs.LevelDebug
+	case "warn":
+		return logs.LevelWarn
+	case "info":
+		return logs.LevelInfo
+	case "trace":
+		return logs.LevelTrace
 	}
-	conn := redisPool.Get()
-	defer conn.Close()
-	_, err = conn.Do("ping")
+
+	return logs.LevelDebug
+}
+
+func initLogger() (err error) {
+	config := make(map[string]interface{})
+	config["filename"] = "./log.log"
+	config["level"] = convertLogLevel("debug")
+
+	configStr, err := json.Marshal(config)
 	if err != nil {
-		logs.Error("redis ping连接异常")
+		fmt.Println("marshal failed, err:", err)
 		return
 	}
+
+	logs.SetLogger(logs.AdapterFile, string(configStr))
+	return
+}
+func initRedis() (err error) {
+	//redisPool = &redis.Pool{
+	//	MaxIdle:     secKillConf.RedisConf.RedisMaxIdle,
+	//	MaxActive:   secKillConf.RedisConf.RedisMaxActive,
+	//	IdleTimeout: time.Duration(secKillConf.RedisConf.RedisIdleTimeout) * time.Second,
+	//	Dial: func() (redis.Conn, error) {
+	//		return redis.Dial("tcp", secKillConf.RedisConf.RedisAddr)
+	//	},
+	//}
+
+	redisPool = &redis.Pool{
+		MaxIdle:     64,
+		MaxActive:   0,
+		IdleTimeout: 300,
+		Dial: func() (redis.Conn, error) {
+			return redis.Dial("tcp", "127.0.0.1")
+		},
+	}
+	//conn := redisPool.Get()
+	//defer conn.Close()
+	//_, err = conn.Do("ping")
+	//if err != nil {
+	//	logs.Error("redis ping连接异常")
+	//	return
+	//}
 	return
 }
 
 func initEtcd() (err error) {
+	cli, err := etcd_client.New(etcd_client.Config{
+		Endpoints:   []string{secKillConf.EtcdConf.EtcdAddr},
+		DialTimeout: 5 * time.Second,
+	})
+	if err != nil {
+		logs.Error("connect etcd failed, err:", err)
+		return
+	}
 
+	etcdClient = cli
 	return
 }
 
+func loadSecConf() (err error) {
+	resp, err := etcdClient.Get(context.Background(), "productKey")
+	if err != nil {
+		logs.Error("connect loadSecConf failed, err:", err)
+		return
+	}
+	for k, v := range resp.Kvs {
+		logs.Debug("key[%s] value[%s]", k, v)
+	}
+	return
+}
 func initSec() (err error) {
+	err = initLogger()
+	if err != nil {
+		logs.Error("初始化logs失败[%s]", err)
+		return
+	}
+
 	err = initRedis()
 	if err != nil {
 		logs.Error("初始化redis失败[%s]", err)
@@ -48,6 +117,12 @@ func initSec() (err error) {
 		return
 	}
 	logs.Debug("初始化成功")
+
+	err = loadSecConf()
+	if err != nil {
+		logs.Error("加载秒杀配置失败[%s]", err)
+		return
+	}
 	return
 }
 
