@@ -2,6 +2,12 @@ package service
 
 import "sync"
 
+const (
+	ProductStatusNormal       = 0
+	ProductStatusSaleOut      = 1
+	ProductStatusForceSaleOut = 2
+)
+
 type SecSkillConf struct {
 	RedisConf         RedisConf
 	EtcdConf          EtcdConf
@@ -28,8 +34,8 @@ type EtcdConf struct {
 
 type SecProductInfoConf struct {
 	ProductId int
-	StartTime int
-	EndTime   int
+	StartTime int64
+	EndTime   int64
 	Status    int
 	Total     int
 	Left      int
