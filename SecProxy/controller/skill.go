@@ -11,8 +11,40 @@ type SkillController struct {
 }
 
 func (p *SkillController) SecKill() {
-	p.Data["json"] = "SecKill"
-	p.ServeJSON(true)
+	result := make(map[string]interface{})
+	result["code"] = 1000
+	result["message"] = "成功"
+	defer func() {
+		p.Data["json"] = result
+		p.ServeJSON(true)
+	}()
+	productId, err := p.GetInt("product_id")
+	if err != nil {
+		result["code"] = 1001
+		result["message"] = "非法id"
+		return
+	}
+	source := p.GetString("src")
+	authcode := p.GetString("authcode")
+	secTime := p.GetString("time")
+	nance := p.GetString("nance")
+
+	secRequest := service.SecRequest{}
+	secRequest.ProductId = productId
+	secRequest.Nance = nance
+	secRequest.AuthCode = authcode
+	secRequest.SecTime = secTime
+	secRequest.Source = source
+	secRequest.UserAuthSign = p.Ctx.GetCookie("userAuthSign")
+	secRequest.UserId = p.Ctx.GetCookie("userId")
+
+	data, code, err := service.SecKill(secRequest)
+	if err != nil {
+		result["code"] = code
+		result["message"] = err.Error()
+		return
+
+	}
 }
 
 func (p *SkillController) SecInfo() {

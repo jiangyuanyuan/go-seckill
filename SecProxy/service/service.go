@@ -83,3 +83,11 @@ func SecInfoById(productId int) (data map[string]interface{}, code int, err erro
 	data["status"] = status
 	return
 }
+
+func SecKill(req *SecRequest) (data map[string]interface{}, code int, err error) {
+
+	secKillConf.RWSecProductLock.RLock()
+	defer secKillConf.RWSecProductLock.Unlock()
+
+	return
+}

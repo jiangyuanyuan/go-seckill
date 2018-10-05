@@ -1,6 +1,9 @@
 package service
 
-import "sync"
+import (
+	"sync"
+	"time"
+)
 
 const (
 	ProductStatusNormal       = 0
@@ -39,4 +42,20 @@ type SecProductInfoConf struct {
 	Status    int
 	Total     int
 	Left      int
+}
+
+type SecRequest struct {
+	ProductId     int
+	Source        string
+	AuthCode      string
+	SecTime       string
+	Nance         string
+	UserId        string
+	UserAuthSign  string
+	AccessTime    time.Time
+	ClientAddr    string
+	ClientRefence string
+	CloseNotify   <-chan bool
+
+	//ResultChan chan *SecResult
 }
