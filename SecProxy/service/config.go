@@ -50,7 +50,7 @@ type SecRequest struct {
 	AuthCode      string
 	SecTime       string
 	Nance         string
-	UserId        string
+	UserId        int
 	UserAuthSign  string
 	AccessTime    time.Time
 	ClientAddr    string

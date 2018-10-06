@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9274c90d-1828-4e2a-a083-275c88184c78" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/SecProxy/service/error.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SecProxy/service/antispam.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SecProxy/controller/skill.go" beforeDir="false" afterPath="$PROJECT_DIR$/SecProxy/controller/skill.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SecProxy/main/init.go" beforeDir="false" afterPath="$PROJECT_DIR$/SecProxy/main/init.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SecProxy/service/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/SecProxy/service/config.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SecProxy/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/SecProxy/service/service.go" afterDir="false" />
     </list>
@@ -27,26 +26,26 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="conf" value="1" />
-          <entry key="go" value="11" />
+          <entry key="go" value="12" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Go" value="11" />
+          <entry key="Go" value="12" />
           <entry key="PLAIN_TEXT" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="conf" value="118" />
-          <entry key="go" value="2648" />
-          <entry key="txt" value="49" />
+          <entry key="go" value="3854" />
+          <entry key="txt" value="60" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Go" value="2648" />
-          <entry key="PLAIN_TEXT" value="167" />
+          <entry key="Go" value="3854" />
+          <entry key="PLAIN_TEXT" value="178" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.go.postfix.template.usages.trigger">
@@ -67,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SecProxy/main/init.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="236" column="39" lean-forward="true" selection-start-line="236" selection-start-column="39" selection-end-line="236" selection-end-column="39" />
+            <state relative-caret-position="395">
+              <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
               <folding>
                 <element signature="e#14#228#0" expanded="true" />
               </folding>
@@ -82,8 +81,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SecProxy/service/service.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-881">
-              <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
+            <state relative-caret-position="156">
+              <caret line="98" column="9" lean-forward="true" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+              <folding>
+                <element signature="e#17#42#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SecProxy/service/antispam.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="316">
+              <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
               <folding>
                 <element signature="e#17#42#0" expanded="true" />
               </folding>
@@ -94,8 +105,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SecProxy/service/error.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="20" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="20" />
+            <state relative-caret-position="95">
+              <caret line="5" column="26" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -103,8 +114,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SecProxy/service/config.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="24" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="24" />
+            <state relative-caret-position="308">
+              <caret line="54" column="14" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="14" />
+              <folding>
+                <element signature="e#17#43#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -134,15 +148,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SecProxy/conf/app.conf">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="171">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SecProxy/router/router.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="190">
@@ -157,8 +162,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SecProxy/controller/skill.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
+            <state relative-caret-position="327">
+              <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="38" />
               <folding>
                 <element signature="e#20#99#0" expanded="true" />
               </folding>
@@ -189,10 +194,11 @@
         <option value="$PROJECT_DIR$/SecProxy/tools/SetConf/main.go" />
         <option value="$PROJECT_DIR$/SecProxy/main/config.go" />
         <option value="$PROJECT_DIR$/SecProxy/service/error.go" />
+        <option value="$PROJECT_DIR$/SecProxy/main/init.go" />
+        <option value="$PROJECT_DIR$/SecProxy/service/service.go" />
         <option value="$PROJECT_DIR$/SecProxy/service/config.go" />
         <option value="$PROJECT_DIR$/SecProxy/controller/skill.go" />
-        <option value="$PROJECT_DIR$/SecProxy/service/service.go" />
-        <option value="$PROJECT_DIR$/SecProxy/main/init.go" />
+        <option value="$PROJECT_DIR$/SecProxy/service/antispam.go" />
       </list>
     </option>
   </component>
@@ -274,27 +280,6 @@
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
               <item name="Go SDK 1.11" type="20ee2d1f:SyntheticLibraryElementNode" />
             </path>
-            <path>
-              <item name="go-seckill" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Go SDK 1.11" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-seckill" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Go SDK 1.11" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="encoding" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="go-seckill" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="Go SDK 1.11" type="20ee2d1f:SyntheticLibraryElementNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="encoding" type="462c0819:PsiDirectoryNode" />
-              <item name="json" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -365,14 +350,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="20" y="23" width="1400" height="860" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2569956" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2569956" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.3294271" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3294271" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -400,7 +384,9 @@
     <MESSAGE value="初始化redis etcd" />
     <MESSAGE value="etcd" />
     <MESSAGE value="编写Service" />
-    <option name="LAST_COMMIT_MESSAGE" value="编写Service" />
+    <MESSAGE value="秒杀商品接口" />
+    <MESSAGE value="秒杀接口开始" />
+    <option name="LAST_COMMIT_MESSAGE" value="秒杀接口开始" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/../../github.com/coreos/etcd/clientv3/auth.go">
@@ -447,40 +433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SecProxy/service/error.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="20" selection-start-line="10" selection-start-column="4" selection-end-line="10" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SecProxy/service/config.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SecProxy/controller/skill.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="44" column="36" lean-forward="true" selection-start-line="44" selection-start-column="36" selection-end-line="44" selection-end-column="36" />
-          <folding>
-            <element signature="e#20#99#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SecProxy/service/service.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-881">
-          <caret line="21" column="23" lean-forward="true" selection-start-line="21" selection-start-column="23" selection-end-line="21" selection-end-column="23" />
-          <folding>
-            <element signature="e#17#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SecProxy/main/main.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
@@ -490,10 +442,57 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/SecProxy/main/init.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="236" column="39" lean-forward="true" selection-start-line="236" selection-start-column="39" selection-end-line="236" selection-end-column="39" />
+        <state relative-caret-position="395">
+          <caret line="244" lean-forward="true" selection-start-line="244" selection-end-line="244" />
           <folding>
             <element signature="e#14#228#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SecProxy/service/error.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="26" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SecProxy/service/config.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="54" column="14" selection-start-line="54" selection-start-column="4" selection-end-line="54" selection-end-column="14" />
+          <folding>
+            <element signature="e#17#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SecProxy/controller/skill.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="42" column="4" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="38" />
+          <folding>
+            <element signature="e#20#99#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SecProxy/service/service.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="98" column="9" lean-forward="true" selection-start-line="98" selection-start-column="9" selection-end-line="98" selection-end-column="9" />
+          <folding>
+            <element signature="e#17#42#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SecProxy/service/antispam.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="316">
+          <caret line="47" column="16" lean-forward="true" selection-start-line="47" selection-start-column="16" selection-end-line="47" selection-end-column="16" />
+          <folding>
+            <element signature="e#17#42#0" expanded="true" />
           </folding>
         </state>
       </provider>

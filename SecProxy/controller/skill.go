@@ -3,6 +3,8 @@ package controller
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+	"strconv"
+	"time"
 	"workspace/go-seckill/SecProxy/service"
 )
 
@@ -36,9 +38,10 @@ func (p *SkillController) SecKill() {
 	secRequest.SecTime = secTime
 	secRequest.Source = source
 	secRequest.UserAuthSign = p.Ctx.GetCookie("userAuthSign")
-	secRequest.UserId = p.Ctx.GetCookie("userId")
 
-	data, code, err := service.SecKill(secRequest)
+	secRequest.UserId, _ = strconv.Atoi(p.Ctx.GetCookie("userId"))
+	secRequest.AccessTime = time.Now()
+	data, code, err := service.SecKill(&secRequest)
 	if err != nil {
 		result["code"] = code
 		result["message"] = err.Error()
