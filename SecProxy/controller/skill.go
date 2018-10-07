@@ -4,6 +4,7 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 	"strconv"
+	"strings"
 	"time"
 	"workspace/go-seckill/SecProxy/service"
 )
@@ -41,6 +42,10 @@ func (p *SkillController) SecKill() {
 
 	secRequest.UserId, _ = strconv.Atoi(p.Ctx.GetCookie("userId"))
 	secRequest.AccessTime = time.Now()
+	if len(p.Ctx.Request.RemoteAddr) > 0 {
+		secRequest.ClientAddr = strings.Split(p.Ctx.Request.RemoteAddr, ":")[0]
+	}
+
 	data, code, err := service.SecKill(&secRequest)
 	if err != nil {
 		result["code"] = code

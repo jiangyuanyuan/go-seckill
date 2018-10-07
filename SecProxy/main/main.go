@@ -6,11 +6,11 @@ import (
 )
 
 func main() {
-	//err := intConfig()
-	//if err != nil {
-	//	panic(err)
-	//	return
-	//}
+	err := intConfig()
+	if err != nil {
+		panic(err)
+		return
+	}
 	err := initSec()
 	if err != nil {
 		panic(err)

@@ -7,10 +7,12 @@ import (
 
 var secLimitMgr = &SecLimitMgr{
 	UserLimitMap: make(map[int]*SecLimit, 10000),
+	IpLimitMap:   make(map[string]*SecLimit, 10000),
 }
 
 type SecLimitMgr struct {
 	UserLimitMap map[int]*SecLimit
+	IpLimitMap   map[string]*SecLimit
 	lock         sync.RWMutex
 }
 type SecLimit struct {
@@ -48,6 +50,17 @@ func antiSpam(req *SecRequest) (err error) {
 
 	if count > 5 {
 		err = fmt.Errorf("请求频繁")
+		return
+	}
+
+	secIpLimit, ok := secLimitMgr.UserLimitMap[req.UserId]
+	if !ok {
+		secIpLimit = &SecLimit{}
+		secLimitMgr.IpLimitMap[req.ClientAddr] = secIpLimit
+	}
+	ipCount := secLimit.count(req.AccessTime.Unix())
+	if ipCount > 50 {
+		err = fmt.Errorf("同IP请求频繁")
 		return
 	}
 	return
